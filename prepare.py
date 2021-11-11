@@ -1,3 +1,11 @@
+import pandas as pd
+import numpy as np
+import os
+from env import host, user, password
+
+############ PREPARE IRIS $$$$$$$$$$$
+
+
 def prep_iris(iris_df):
     '''
     This function will accept untransformed iris data and return the prepped data
@@ -7,6 +15,8 @@ def prep_iris(iris_df):
     iris_dummy_df = pd.get_dummies(iris_df[['species']], dummy_na = False, drop_first = [True])
     iris_df = pd.concat([iris_df, iris_dummy_df], axis = 1)
     return iris_df
+
+############## PREPARE TITANIC #############
     
 def prep_titanic(titanic_df):
     '''
@@ -19,7 +29,9 @@ def prep_titanic(titanic_df):
     titanic_df = pd.concat([titanic_df, titanic_dummy_df], axis = 1)
     return titanic_df
 
-    def prep_telco(telco_df):
+############## PREPARE TELCO ###################
+
+def prep_telco(telco_df):
     cols_to_drop = ['payment_type_id', 'internet_service_type_id', 'contract_type_id', 'customer_id']
     telco_df = telco_df.drop(columns=cols_to_drop)
     telco_df['total_charges'] = pd.to_numeric(telco_df['total_charges'], errors = 'coerce')
