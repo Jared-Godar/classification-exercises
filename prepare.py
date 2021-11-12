@@ -36,6 +36,7 @@ def prep_telco(telco_df):
     telco_df = telco_df.drop(columns=cols_to_drop)
     telco_df['total_charges'] = pd.to_numeric(telco_df['total_charges'], errors = 'coerce')
     telco_df['total_charges'] = telco_df['total_charges'].fillna(0)
+    telco_df = telco_df[telco_df['total_charges'] != 0]
     telco_dummy_df = pd.get_dummies(telco_df[['gender', 'partner', 'dependents', 'phone_service', 'multiple_lines', 'online_security', 'online_backup', 'device_protection', 'tech_support', 'streaming_tv', 'streaming_movies', 'paperless_billing', 'churn', 'contract_type', 'internet_service_type', 'payment_type'  ]], dummy_na = False, drop_first = [True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True])
     telco_df = pd.concat([telco_df, telco_dummy_df], axis = 1)
     return telco_df
