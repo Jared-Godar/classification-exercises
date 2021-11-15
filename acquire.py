@@ -24,9 +24,9 @@ def new_titanic_data():
     sql_query = 'SELECT * FROM passengers'
     
     # Read in DataFrame from Codeup db.
-    df = pd.read_sql(sql_query, get_connection('titanic_db'))
+    titanic_df = pd.read_sql(sql_query, get_connection('titanic_db'))
     
-    return df
+    return titanic_df
 
 
 
@@ -38,17 +38,17 @@ def get_titanic_data():
     if os.path.isfile('titanic_df.csv'):
         
         # If csv file exists, read in data from csv file.
-        df = pd.read_csv('titanic_df.csv', index_col=0)
+        titanic_df = pd.read_csv('titanic_df.csv', index_col=0)
         
     else:
         
         # Read fresh data from db into a DataFrame.
-        df = new_titanic_data()
+        titanic_df = new_titanic_data()
         
         # Write DataFrame to a csv file.
-        df.to_csv('titanic_df.csv')
+        titanic_df.to_csv('titanic_df.csv')
         
-    return df
+    return titanic_df
 
 ###################### Acquire Iris Data ######################
 
@@ -69,9 +69,9 @@ def new_iris_data():
                 """
     
     # Read in DataFrame from Codeup db.
-    df = pd.read_sql(sql_query, get_connection('iris_db'))
+    iris_df = pd.read_sql(sql_query, get_connection('iris_db'))
     
-    return df
+    return iris_df
 
 
 def get_iris_data():
@@ -82,17 +82,17 @@ def get_iris_data():
     if os.path.isfile('iris_df.csv'):
         
         # If csv file exists read in data from csv file.
-        df = pd.read_csv('iris_df.csv', index_col=0)
+        iris_df = pd.read_csv('iris_df.csv', index_col=0)
         
     else:
         
         # Read fresh data from db into a DataFrame
-        df = new_iris_data()
+        iris_df = new_iris_data()
         
         # Cache data
-        df.to_csv('iris_df.csv')
+        iris_df.to_csv('iris_df.csv')
         
-    return df
+    return iris_df
 
 def new_telco_data():
     '''
@@ -106,9 +106,9 @@ def new_telco_data():
                 """
     
     # Read in DataFrame from Codeup db.
-    df = pd.read_sql(sql_query, get_connection('telco_churn'))
+    telco_df = pd.read_sql(sql_query, get_connection('telco_churn'))
     
-    return df
+    return telco_df
 
 def get_telco_data():
     '''
@@ -118,14 +118,14 @@ def get_telco_data():
     if os.path.isfile('telco.csv'):
         
         # If csv file exists read in data from csv file.
-        df = pd.read_csv('telco.csv', index_col=0)
+        telco_df = pd.read_csv('telco.csv', index_col=0)
         
     else:
         
         # Read fresh data from db into a DataFrame
-        df = new_telco_data()
+        telco_df = new_telco_data()
         
         # Cache data
-        df.to_csv('telco.csv')
+        telco_df.to_csv('telco.csv')
         
-    return df
+    return telco_df

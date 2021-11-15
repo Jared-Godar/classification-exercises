@@ -6,22 +6,28 @@ import acquire
 import prepare
 import split
 
-######################  Titanic  ###################
+#######  Titanic  #############
 
-acquire.get_titanic_data()
-prepare.prep_titanic(titanic_df)
-split.split_titanic(titanic_df)
+def wrangle_titanic():
+    titanic_df = acquire.get_titanic_data()
+    titanic_df = prepare.prep_titanic(titanic_df)
+    titanic_train, titanic_validate, titanic_test = split.split_titanic(titanic_df)
+    return titanic_train, titanic_validate, titanic_test
 
-######## IRIS #############
+######## IRIS ##################
 
-acquire.get_iris_data()
-prepare.prep_iris(iris_df)
-split.split_iris(iris_df)
+def wrangle_iris():
+    iris_df = acquire.get_iris_data()
+    iris_df = prepare.prep_iris(iris_df)
+    iris_train, iris_validate, iris_test =split.split_iris(prepare.prep_iris(acquire.get_iris_data()))
+    return iris_train, iris_validate, iris_test 
 
 
-####### TELCO #############
+####### TELCO ###################
 
-acquire.get_telco_data()
-prepare.prep_telco(telco_df)
-split.split_telco(telco_df)
+def wrangle_telco():
+    telco_df = acquire.get_telco_data()
+    telco_df = prepare.prep_telco(telco_df)
+    telco_train, telco_validate, telco_test = split.split_telco(telco_df)
+    return telco_train, telco_validate, telco_test
 
