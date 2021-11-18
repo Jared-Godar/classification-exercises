@@ -36,3 +36,28 @@ def mod_eval(tp, tn, fp, fn):
     a = accuracy(tp, tn, fp, fn)
     f = f1(tp, fp, fn)
     return p, r, s, n, a, f
+
+
+
+def tpr(tp, fn):
+    tpr = tp/(tp+fn)
+    return tpr
+
+def fpr(fp, tn):
+    fpr = fp/(tn+fp)
+    return fpr
+
+def tnr(tn, fp):
+    tnr = tn/(tn+fp)
+    return tnr
+
+def fnr(fn, tp):
+    fnr = fn/(tp+fn)
+    return fnr
+
+def eval_rates(tp, tn, fp, fn):
+    tp = tpr(tp, fn)
+    fp = fpr(fp, tn)
+    tn = tnr(tn, fp)
+    fn = fnr(fn, tp)
+    return tp, fp, tn, fn
