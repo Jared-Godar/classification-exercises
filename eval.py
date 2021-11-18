@@ -22,10 +22,17 @@ def accuracy(tp, tn, fp, fn):
     accuracy = (tp+tn)/(tp+fp+fn+tn)
     return accuracy
 
+def f1(tp, fp, fn):
+    r = recall(tp, fn)
+    p = precision(tp, fp)
+    f1 = (2 * r * p) / (r + p)
+    return f1
+
 def mod_eval(tp, tn, fp, fn):
-    precision = precision(tp, fp)
-    recall = recall(tp, fn)
-    specificity = specificity(tn, fp, tn)
-    npv =  npv(tn, fn)
-    accuracy = accuracy(tp, tn, fp, fn)
-    return precision, recall, specificity, npv, accuracy
+    p = precision(tp, fp)
+    r = recall(tp, fn)
+    s = specificity(tn, fp)
+    n =  npv(tn, fn)
+    a = accuracy(tp, tn, fp, fn)
+    f = f1(tp, fp, fn)
+    return p, r, s, n, a, f

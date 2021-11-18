@@ -11,8 +11,8 @@ def split_iris(iris_df):
     '''
     Takes a prepared dataframe and splits into train, validate, and test dataframes
     '''
-    iris_train, iris_test = train_test_split(iris_df, test_size = 0.2, random_state = 123)
-    iris_train, iris_validate = train_test_split(iris_train, test_size = .3, random_state = 123)
+    iris_train, iris_test = train_test_split(iris_df, test_size = 0.2, stratify = iris_df.species, random_state = 123)
+    iris_train, iris_validate = train_test_split(iris_train, test_size = .3, stratify = iris_df.species, random_state = 123)
     return iris_train, iris_validate, iris_test 
 
 

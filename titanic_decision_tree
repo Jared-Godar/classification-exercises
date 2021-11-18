@@ -1,0 +1,33 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname=helvetica] ;
+edge [fontname=helvetica] ;
+0 [label="sex_male <= 0.5\ngini = 0.473\nsamples = 498\nvalue = [307, 191]", fillcolor="#f5cfb4"] ;
+1 [label="pclass <= 2.5\ngini = 0.365\nsamples = 175\nvalue = [42, 133]", fillcolor="#78bced"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="passenger_id <= 298.0\ngini = 0.081\nsamples = 94\nvalue = [4, 90]", fillcolor="#42a1e6"] ;
+1 -> 2 ;
+3 [label="gini = 0.252\nsamples = 27\nvalue = [4, 23]", fillcolor="#5baeea"] ;
+2 -> 3 ;
+4 [label="gini = 0.0\nsamples = 67\nvalue = [0, 67]", fillcolor="#399de5"] ;
+2 -> 4 ;
+5 [label="fare <= 23.912\ngini = 0.498\nsamples = 81\nvalue = [38, 43]", fillcolor="#e8f4fc"] ;
+1 -> 5 ;
+6 [label="gini = 0.476\nsamples = 69\nvalue = [27, 42]", fillcolor="#b8dcf6"] ;
+5 -> 6 ;
+7 [label="gini = 0.153\nsamples = 12\nvalue = [11, 1]", fillcolor="#e78c4b"] ;
+5 -> 7 ;
+8 [label="fare <= 18.275\ngini = 0.295\nsamples = 323\nvalue = [265, 58]", fillcolor="#eb9d64"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="passenger_id <= 36.5\ngini = 0.184\nsamples = 205\nvalue = [184, 21]", fillcolor="#e88f50"] ;
+8 -> 9 ;
+10 [label="gini = 0.48\nsamples = 5\nvalue = [2, 3]", fillcolor="#bddef6"] ;
+9 -> 10 ;
+11 [label="gini = 0.164\nsamples = 200\nvalue = [182, 18]", fillcolor="#e88d4d"] ;
+9 -> 11 ;
+12 [label="passenger_id <= 164.5\ngini = 0.43\nsamples = 118\nvalue = [81, 37]", fillcolor="#f1bb93"] ;
+8 -> 12 ;
+13 [label="gini = 0.191\nsamples = 28\nvalue = [25, 3]", fillcolor="#e89051"] ;
+12 -> 13 ;
+14 [label="gini = 0.47\nsamples = 90\nvalue = [56, 34]", fillcolor="#f5ceb1"] ;
+12 -> 14 ;
+}
